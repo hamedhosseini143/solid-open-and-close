@@ -9,7 +9,7 @@ class GenericEncoder
 
     private EncoderFactory $encoderFactory;
 
-    public function __construct(EncoderFactory $encoderFactory)
+    public function __construct(EncoderFactoryConfigInterface $encoderFactory)
     {
         $this->encoderFactory = $encoderFactory;
     }
