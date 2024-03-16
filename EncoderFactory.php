@@ -4,11 +4,11 @@ namespace src\Solid\ocp;
 
 use InvalidArgumentException;
 
-class EncoderFactory
+class EncoderFactory implements EncoderFactoryConfigInterface, FactoryEncoderInterface
 {
     private array $factory = [];
 
-    public function addEncoderFactory(string $format, callable  $factory): void
+    public function addEncoder(string $format, callable $factory): void
     {
         $this->factory[$format] = $factory; // output: ['json' => function() { return new JsonEncoder(); }]
     }
@@ -20,5 +20,4 @@ class EncoderFactory
         $factory = $this->factory[$format]; // output: function() { return new JsonEncoder(); }
         return $factory();
     }
-
 }
